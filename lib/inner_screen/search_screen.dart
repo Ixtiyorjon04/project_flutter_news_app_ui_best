@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:project_flutter_news_app/consts/vars.dart';
+import 'package:project_flutter_news_app/widgets/empty_screen.dart';
+import 'package:project_flutter_news_app/widgets/vertical_spacing.dart';
+
+import '../services/utils.dart';
+
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  late final TextEditingController _searchTextController;
+  late final FocusNode focusNode;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _searchTextController = TextEditingController();
+    focusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    if (mounted) {
+      _searchTextController.dispose();
+      focusNode.dispose();
+    }
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = Utils(context).getScrrenSize;
+    final Color color = Utils(context).getColor;
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+            body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    child: Icon(IconlyLight.arrowLeft2),
+                    onTap: () {
+                      focusNode.unfocus();
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Flexible(
+                    child: TextField(
+                      focusNode: focusNode,
+                      controller: _searchTextController,
+                      style: TextStyle(color: color),
+                      autofocus: true,
+                      textInputAction: TextInputAction.search,
+                      keyboardType: TextInputType.text,
+                      onEditingComplete: () {},
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(bottom: 8 / 5),
+                          hintText: "Search",
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          suffix: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: GestureDetector(
+                              onTap: () {
+                                _searchTextController.clear();
+                                focusNode.unfocus();
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.close,
+                                size: 18,
+                                color: Colors.red,
+                              ),
+                            ),
+                          )),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            VerticalSpacing(10),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: MasonryGridView.count(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  itemCount: searchKeyWords.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: color),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(searchKeyWords[index]),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            EmptyNewsWidget(
+                text: 'Ops! No results found',
+                imagepath: 'assets/images/search.png')
+          ],
+        )),
+      ),
+    );
+  }
+}
