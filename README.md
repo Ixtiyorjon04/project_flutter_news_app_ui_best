@@ -1,13 +1,18 @@
 # project_flutter_news_app
+![image](https://user-images.githubusercontent.com/110228652/205564892-618791ed-5353-4ace-a145-61477c02640f.png)
+![image](https://user-images.githubusercontent.com/110228652/205564924-30060585-8831-4ca6-a634-a7463bc94fb4.png)
+![image](https://user-images.githubusercontent.com/110228652/205564932-2ace9998-3709-4e9e-82c0-65023c643531.png)
+![image](https://user-images.githubusercontent.com/110228652/205565009-2f5258ea-732a-442c-9902-b9800cb8cfaa.png)
+![image](https://user-images.githubusercontent.com/110228652/205565042-281f92a0-f60d-4156-8d59-84792bffbdb9.png)
+![image](https://user-images.githubusercontent.com/110228652/205565351-a504a005-15e1-4773-b6b8-7589505c3d3f.png)
+![image](https://user-images.githubusercontent.com/110228652/205565350-471645a1-e05f-4ccb-9f2e-6fe3d524882b.png)
+
+
+
+
 
 A new Flutter project.
-![image](https://user-images.githubusercontent.com/110228652/205564427-626817f6-0c88-439e-9662-6d252fb2c3d3.png)
-![Uploading image.png…]()
 
-
-![image](https://user-images.githubusercontent.com/110228652/205564451-55e43b8e-4fe6-424b-ad3a-3d7d402b987c.png)
-![image](https://user-images.githubusercontent.com/110228652/205564468-3bc15b73-5da4-4d74-bf79-b15c9d2ff1d7.png)
-![image](https://user-images.githubusercontent.com/110228652/205564484-de48b95d-78c9-45f3-a1dc-d42bb082ccf5.png)
 
 
 ## Getting Started
